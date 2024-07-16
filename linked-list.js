@@ -9,13 +9,17 @@ class LinkedList {
     constructor(head=null) {
         this.head = head;
         let point = head;
-        while (point.next) {
+        while (point !== null && point.next) {
             point = point.next;
         }
         this.tail = point;
         this.size = (head) ? 1 : 0;
     }
     append(value) {
+        if (!this.head) {
+            this.prepend(value);
+            return;
+        }
         let point = this.tail;
         const node = new Node(value);
         point.next = node;
@@ -27,6 +31,9 @@ class LinkedList {
         const node = new Node(value);
         node.next = point;
         this.head = node;
+        if (!point) {
+            this.tail = node;
+        }
         this.size ++;
     }
     getSize() {
