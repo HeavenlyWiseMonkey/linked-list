@@ -81,6 +81,7 @@ class LinkedList {
             if (point.data===value) {
                 return index;
             }
+            index += 1;
             point = point.next;
         }
         return null;
@@ -150,4 +151,5 @@ list.append(2);
 list.prepend(4);
 list.insertAt(5, 1);
 list.removeAt(1);
+console.log(list.find(1));
 console.log(list.toString());
