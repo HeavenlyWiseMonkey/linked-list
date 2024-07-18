@@ -126,6 +126,9 @@ class LinkedList {
     removeAt(index) {
         let point = this.head;
         if (index===0) {
+            if (this.head === this.tail) {
+                this.tail = null;
+            }
             this.head = this.head.next;
             return;
         }
@@ -146,10 +149,7 @@ class LinkedList {
     }
 }
 
-const list = new LinkedList(new Node(1));
-list.append(2);
-list.prepend(4);
-list.insertAt(5, 1);
-list.removeAt(1);
-console.log(list.find(1));
-console.log(list.toString());
+// let list = new LinkedList(new Node('apple'));
+// list.append('banana');
+// list.append('cat');
+// console.log(list);
